@@ -7,12 +7,12 @@ variable "dns_prefix" {
 variable "node_count" {
   type        = number
   description = "Cantidad de nodos en el pool"
-  default     = 1
+  default     = 2
 }
 
 variable "vm_size" {
   type        = string
-  description = "Tamaño de las máquinas virtuales en el clúster AKS"
+  description = "Talla VM del cluster"
   default     = "Standard_B2s"
 }
 
@@ -21,12 +21,14 @@ variable "tags" {
   description = "Etiquetas a aplicar en el clúster AKS"
   default     = {
     environment = "production"
+    region = "westeurope"
+    app = "aks"
   }
 }
 
 variable "principal_id" {
   type        = string
-  description = "ID del usuario o servicio al que se asignará el rol"
-  default     = "66098637-544e-4b35-a224-f5ee770dd348"  # Aquí pones directamente el client_id
+  description = "ObjectId del grupo al que se asignaran permisos"
+  default     = "e755c5b3-7c7f-4ffa-97ec-602faa6b5a42"  # --> ObjectId del grupo
 }
 
