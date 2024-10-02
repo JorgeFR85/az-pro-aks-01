@@ -27,4 +27,6 @@ variable "tags" {
 variable "principal_id" {
   type        = string
   description = "ID del usuario o servicio al que se asignará el rol"
+  default     = "66098637-544e-4b35-a224-f5ee770dd348"  # Aquí pones directamente el client_id
 }
+

@@ -15,8 +15,6 @@ env:
   ARM_TENANT_ID: "${{ secrets.AZURE_TENANT_ID }}"
   GIT_SSH_COMMAND: ${{ secrets.GIT_SSH_COMMAND }}
   ARM_USE_OIDC: true
-  TF_VAR_principal_id: "${{ secrets.AZURE_CLIENT_ID }}"  # Pasar AZURE_CLIENT_ID como principal_id
-  ARM_SKIP_PROVIDER_REGISTRATION: true
 
 jobs:
   terraform-plan:
