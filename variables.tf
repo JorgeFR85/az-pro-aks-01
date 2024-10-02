@@ -29,6 +29,6 @@ variable "tags" {
 variable "principal_id" {
   type        = string
   description = "ObjectId del grupo al que se asignaran permisos"
-  #default     = "66098637-544e-4b35-a224-f5ee770dd348"  # --> ObjectId del grupo
+  default     = "66098637-544e-4b35-a224-f5ee770dd348"  # --> ObjectId del grupo
 }
 
