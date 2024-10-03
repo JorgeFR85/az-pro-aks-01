@@ -25,4 +25,5 @@ resource "azurerm_role_assignment" "role_assignment" {
   principal_id         = var.principal_id
   role_definition_name = "Contributor"
   scope                = azurerm_resource_group.aks_rg.id
+  skip_service_principal_aad_check = true
 }
