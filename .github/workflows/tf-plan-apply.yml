@@ -28,6 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      # Añadimos caché para acelerar terraform init en futuras ejecuciones
       - name: Cache Terraform modules
         uses: actions/cache@v3
         with:
@@ -49,6 +50,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
+      # Comprobar si .terraform existe antes de ejecutar terraform init
       - name: Terraform Init (only if necessary)
         run: |
           if [ ! -d ".terraform" ]; then
@@ -56,15 +58,15 @@ jobs:
           else
             echo "Skipping terraform init, already initialized."
           fi
-      
 
-          - name: Terraform Plan
-          id: tf-plan
-          run: |
-            terraform plan -parallelism=10 -out=tfplan
-            echo "exitcode=$?" >> $GITHUB_OUTPUT
-        
+      # Genera el plan con paralelismo
+      - name: Terraform Plan
+        id: tf-plan
+        run: |
+          terraform plan -parallelism=10 -out=tfplan
+          echo "exitcode=$?" >> $GITHUB_OUTPUT
 
+      # Subir el plan como artefacto para la etapa apply
       - name: Upload Terraform Plan
         uses: actions/upload-artifact@v3
         with:
@@ -107,5 +109,3 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve "tfplan"
-
-        
