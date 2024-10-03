@@ -21,7 +21,7 @@ variable "tags" {
   description = "Etiquetas a aplicar en el clúster AKS"
   default     = {
     environment = "production"
-    region = "westeurope"
+    region = "East US"
     app = "aks"
   }
 }
@@ -60,6 +60,6 @@ variable "tenant_id" {
 variable "location" {
   description = "Azure Region"
   type        = string
-  default     = "westeurope"
+  default     = "East US"
 }
 
