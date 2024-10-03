@@ -28,7 +28,7 @@ variable "node_count" {
 variable "vm_size" {
   type        = string
   description = "Tamaño de las VM's del AKS"
-  default     = "Standard_B2ms"
+  default     = "Standard_B2ps_v2"
 }
 
 variable "tags" {

@@ -13,7 +13,7 @@ variable "node_count" {
 variable "vm_size" {
   type        = string
   description = "Talla VM del cluster"
-  default     = "Standard_B2s"
+  default     = "Standard_B2ps_v2"
 }
 
 variable "tags" {
