@@ -19,14 +19,14 @@ provider "azurerm" {
 
 # Se crea el resource group
 resource "azurerm_resource_group" "aks_rg" {
-  name     = "az-pro-aks-eus-01"
+  name     = "az-pro-aks-eus-02"
   location = "centralus"
 }
 
 # Creación del AKS usando un módulo
 module "aks" {
   source              = "./modules/aks"
-  aks_name            = "az-pro-aks-01"
+  aks_name            = "az-pro-aks-02"
   location            = azurerm_resource_group.aks_rg.location
   resource_group_name = azurerm_resource_group.aks_rg.name
   dns_prefix          = var.dns_prefix
