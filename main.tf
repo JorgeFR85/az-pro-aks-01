@@ -20,7 +20,7 @@ provider "azurerm" {
 # Se crea el resource group
 resource "azurerm_resource_group" "aks_rg" {
   name     = "az-pro-aks-eus-01"
-  location = "East US"
+  location = "centralus"
 }
 
 # Creación del AKS usando un módulo
