@@ -1,7 +1,7 @@
 variable "dns_prefix" {
   type        = string
   description = "Prefijo DNS para el clúster de AKS"
-  default     = "az-pro-aks-01"
+  default     = "az-pro-aks-02"
 }
 
 variable "node_count" {
@@ -53,6 +53,6 @@ variable "tenant_id" {
 variable "location" {
   description = "Azure Region"
   type        = string
-  default     = "East US"
+  default     = "centralus"
 }
 
