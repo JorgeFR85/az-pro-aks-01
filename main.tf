@@ -2,13 +2,13 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 4.3.0"  # Recomendación para utilizar una versión estable y actualizada
+      version = "~> 4.3.0"  
     }
   }
 }
 
 provider "azurerm" {
-  features {} # Habilita las características predeterminadas del proveedor
+  features {} 
 
   subscription_id = var.subscription_id
   client_id       = var.client_id
@@ -19,14 +19,14 @@ provider "azurerm" {
 
 # Se crea el resource group
 resource "azurerm_resource_group" "aks_rg" {
-  name     = "az-pro-aks-eus-02"
-  location = "centralus"
+  name     = "az-pro-aks-eus-01"
+  location = var.location
 }
 
 # Creación del AKS usando un módulo
 module "aks" {
   source              = "./modules/aks"
-  aks_name            = "az-pro-aks-02"
+  aks_name            = "az-pro-aks-01"
   location            = azurerm_resource_group.aks_rg.location
   resource_group_name = azurerm_resource_group.aks_rg.name
   dns_prefix          = var.dns_prefix
@@ -35,7 +35,7 @@ module "aks" {
   tags                = var.tags
 }
 
-# Permisos de contributor al grupo encargado del AKS
+# Permisos de contributor al grupo/service principal/user encargado del AKS
 resource "azurerm_role_assignment" "role_assignment" {
   principal_id         = var.principal_id
   role_definition_name = "Contributor"

@@ -1,7 +1,7 @@
 variable "dns_prefix" {
   type        = string
   description = "Prefijo DNS para el clúster de AKS"
-  default     = "az-pro-aks-02"
+  default     = "az-pro-aks-01"
 }
 
 variable "node_count" {
@@ -21,45 +21,38 @@ variable "tags" {
   description = "Etiquetas a aplicar en el clúster AKS"
   default     = {
     environment = "production"
-    region = "centralus"
+    region = "East US"
     app = "aks"
   }
 }
-/*
 variable "principal_id" {
-  type        = string
-  description = "ObjectId del grupo al que se asignaran permisos"
-  default     = "66098637-544e-4b35-a224-f5ee770dd348"  # --> ObjectId del grupo
-}
-*/
-variable "principal_id" {
-  description = "ID del usuario o servicio al que se asignará el rol"
+  description = "ClientID (AppID) del Service Principal o ObjectID Grupo/user"
   type        = string
 }
 
 variable "subscription_id" {
-  description = "Azure subscription ID"
+  description = "Subscription ID Azure"
   type        = string
 }
 
 variable "client_id" {
-  description = "Azure Client ID"
+  description = "Azure Client ID (config git AZURE_CLIENT_ID workflow y terraform.tfvars)"
   type        = string
 }
 
 variable "client_secret" {
-  description = "Azure Client Secret"
+  description = "Secret del service principal"
   type        = string
 }
 
 variable "tenant_id" {
-  description = "Azure Tenant ID"
+  description = "Tenant ID de Azure"
   type        = string
 }
 
 variable "location" {
   description = "Azure Region"
   type        = string
-  default     = "centralus"
+  default     = "East US"
 }
 

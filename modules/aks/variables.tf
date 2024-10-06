@@ -6,7 +6,7 @@ variable "aks_name" {
 variable "location" {
   type        = string
   description = "Región del AKS"
-  default     = "centralus"
+  default     = "East US"
 }
 
 variable "resource_group_name" {
