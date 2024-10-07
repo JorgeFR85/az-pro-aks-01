@@ -97,7 +97,7 @@ jobs:
           name: tfplan
 
       - name: Terraform Init
-        run: terraform init  # Asegúrate de que el init se ejecute también antes del apply
+        run: terraform init
 
       - name: Terraform Apply
         run: terraform apply -auto-approve "tfplan"
